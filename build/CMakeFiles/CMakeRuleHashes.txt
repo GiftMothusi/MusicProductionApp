@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+d8f47832be3e01000cc83c2b2e300950 MusicProductionApp_artefacts/JuceLibraryCode/JuceHeader.h
+79b7e5813def386e2d260172c6f0f31f MusicProductionApp_artefacts/JuceLibraryCode/MusicProductionApp/PkgInfo
