@@ -607,6 +607,30 @@ src/audio/MidiHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/audio/MidiHandler.cpp.s
 .PHONY : src/audio/MidiHandler.cpp.s
 
+src/gui/ChannelStrip.o: src/gui/ChannelStrip.cpp.o
+.PHONY : src/gui/ChannelStrip.o
+
+# target to build an object file
+src/gui/ChannelStrip.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o
+.PHONY : src/gui/ChannelStrip.cpp.o
+
+src/gui/ChannelStrip.i: src/gui/ChannelStrip.cpp.i
+.PHONY : src/gui/ChannelStrip.i
+
+# target to preprocess a source file
+src/gui/ChannelStrip.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.i
+.PHONY : src/gui/ChannelStrip.cpp.i
+
+src/gui/ChannelStrip.s: src/gui/ChannelStrip.cpp.s
+.PHONY : src/gui/ChannelStrip.s
+
+# target to generate assembly for a file
+src/gui/ChannelStrip.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.s
+.PHONY : src/gui/ChannelStrip.cpp.s
+
 src/gui/MainComponent.o: src/gui/MainComponent.cpp.o
 .PHONY : src/gui/MainComponent.o
 
@@ -770,6 +794,9 @@ help:
 	@echo "... src/audio/MidiHandler.o"
 	@echo "... src/audio/MidiHandler.i"
 	@echo "... src/audio/MidiHandler.s"
+	@echo "... src/gui/ChannelStrip.o"
+	@echo "... src/gui/ChannelStrip.i"
+	@echo "... src/gui/ChannelStrip.s"
 	@echo "... src/gui/MainComponent.o"
 	@echo "... src/gui/MainComponent.i"
 	@echo "... src/gui/MainComponent.s"

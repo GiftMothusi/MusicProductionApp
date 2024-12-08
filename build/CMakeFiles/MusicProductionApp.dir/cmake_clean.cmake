@@ -35,6 +35,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MusicProductionApp.dir/src/audio/AudioEngine.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/audio/MidiHandler.cpp.o"
   "CMakeFiles/MusicProductionApp.dir/src/audio/MidiHandler.cpp.o.d"
+  "CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o"
+  "CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o"
   "CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o"

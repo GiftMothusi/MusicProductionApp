@@ -168,10 +168,24 @@ CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/SimpleLevelMeter.cpp -o CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.s
 
+CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o: CMakeFiles/MusicProductionApp.dir/flags.make
+CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o: /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.cpp
+CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o -MF CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o.d -o CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o -c /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.cpp
+
+CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.cpp > CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.i
+
+CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.cpp -o CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.s
+
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_basics/juce_audio_basics.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_basics/juce_audio_basics.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.i: cmake_force
@@ -185,7 +199,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basi
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_core/juce_core_CompilationTime.cpp
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_core/juce_core_CompilationTime.cpp
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.i: cmake_force
@@ -199,7 +213,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTi
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_core/juce_core.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_core/juce_core.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.i: cmake_force
@@ -213,7 +227,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.s: cmake_f
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_devices/juce_audio_devices.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_devices/juce_audio_devices.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_devices.mm.i: cmake_force
@@ -227,7 +241,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_devices/juce_audio_dev
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_events/juce_events.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_events/juce_events.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.i: cmake_force
@@ -241,7 +255,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_events/juce_events.mm.s: cma
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_formats/juce_audio_formats.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_formats/juce_audio_formats.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_formats.mm.i: cmake_force
@@ -255,7 +269,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_formats/juce_audio_for
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_ara.cpp.i: cmake_force
@@ -269,7 +283,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.i: cmake_force
@@ -283,7 +297,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_processors/juce_audio_processors.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_processors/juce_audio_processors.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_processors.mm.i: cmake_force
@@ -297,7 +311,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_processors/juce_audio_
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_gui_extra/juce_gui_extra.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_gui_extra/juce_gui_extra.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.i: cmake_force
@@ -311,7 +325,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_gui_basics/juce_gui_basics.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_gui_basics/juce_gui_basics.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.mm.i: cmake_force
@@ -325,7 +339,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_basics/juce_gui_basics.m
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfbuzz.cpp.i: cmake_force
@@ -339,7 +353,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Harfb
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheenbidi.c.i: cmake_force
@@ -353,7 +367,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics_Sheen
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_graphics/juce_graphics.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_graphics/juce_graphics.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.i: cmake_force
@@ -367,7 +381,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_graphics/juce_graphics.mm.s:
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_data_structures/juce_data_structures.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_data_structures/juce_data_structures.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_structures.mm.i: cmake_force
@@ -381,7 +395,7 @@ CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_data_structures/juce_data_st
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o: CMakeFiles/MusicProductionApp.dir/flags.make
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o: /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/juce_audio_utils.mm
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o: CMakeFiles/MusicProductionApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o -MF CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o.d -o CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o -c /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/juce_audio_utils.mm
 
 CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.i: cmake_force
@@ -400,6 +414,7 @@ MusicProductionApp_OBJECTS = \
 "CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o" \
 "CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o" \
 "CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o" \
+"CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o" \
 "CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o" \
 "CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o" \
 "CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o" \
@@ -426,6 +441,7 @@ MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Pr
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o
+MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_basics/juce_audio_basics.mm.o
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core_CompilationTime.cpp.o
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_core/juce_core.mm.o
@@ -444,7 +460,7 @@ MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Pr
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_audio_utils/juce_audio_utils.mm.o
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/build.make
 MusicProductionApp_artefacts/Music\ Production\ App.app/Contents/MacOS/Music\ Production\ App: CMakeFiles/MusicProductionApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable \"MusicProductionApp_artefacts/Music Production App.app/Contents/MacOS/Music Production App\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/mothusit/Documents/C++/MusicProductionApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable \"MusicProductionApp_artefacts/Music Production App.app/Contents/MacOS/Music Production App\""
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MusicProductionApp.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/bin/cmake -E copy /Users/mothusit/Documents/C++/MusicProductionApp/build/MusicProductionApp_artefacts/JuceLibraryCode/MusicProductionApp/PkgInfo "/Users/mothusit/Documents/C++/MusicProductionApp/build/MusicProductionApp_artefacts/Music Production App.app/Contents"
 

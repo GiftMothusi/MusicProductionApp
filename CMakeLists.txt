@@ -35,6 +35,7 @@ target_sources(MusicProductionApp
         src/gui/MainComponent.cpp
         src/gui/MixerPanel.cpp
         src/gui/SimpleLevelMeter.cpp
+        src/gui/ChannelStrip.cpp
 )
 
 target_include_directories(MusicProductionApp
