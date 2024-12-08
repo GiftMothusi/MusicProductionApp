@@ -34,12 +34,14 @@ target_sources(MusicProductionApp
         src/audio/MidiHandler.cpp
         src/gui/MainComponent.cpp
         src/gui/MixerPanel.cpp
+        src/gui/SimpleLevelMeter.cpp
 )
 
 target_include_directories(MusicProductionApp
     PRIVATE
         ${CMAKE_SOURCE_DIR}/src
         ${CMAKE_BINARY_DIR}/MusicProductionApp_artefacts/JuceLibraryCode
+        ${CMAKE_SOURCE_DIR}/src/audio
 )
 
 # Link JUCE modules we need

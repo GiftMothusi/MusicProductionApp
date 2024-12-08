@@ -28,6 +28,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/mothusit/Documents/C++/MusicProductionApp/src/audio/MidiHandler.cpp" "CMakeFiles/MusicProductionApp.dir/src/audio/MidiHandler.cpp.o" "gcc" "CMakeFiles/MusicProductionApp.dir/src/audio/MidiHandler.cpp.o.d"
   "/Users/mothusit/Documents/C++/MusicProductionApp/src/gui/MainComponent.cpp" "CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o" "gcc" "CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o.d"
   "/Users/mothusit/Documents/C++/MusicProductionApp/src/gui/MixerPanel.cpp" "CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o" "gcc" "CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o.d"
+  "/Users/mothusit/Documents/C++/MusicProductionApp/src/gui/SimpleLevelMeter.cpp" "CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o" "gcc" "CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o.d"
   "/Users/mothusit/Documents/C++/MusicProductionApp/src/main.cpp" "CMakeFiles/MusicProductionApp.dir/src/main.cpp.o" "gcc" "CMakeFiles/MusicProductionApp.dir/src/main.cpp.o.d"
   )
 

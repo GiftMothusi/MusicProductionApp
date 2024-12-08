@@ -655,6 +655,30 @@ src/gui/MixerPanel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.s
 .PHONY : src/gui/MixerPanel.cpp.s
 
+src/gui/SimpleLevelMeter.o: src/gui/SimpleLevelMeter.cpp.o
+.PHONY : src/gui/SimpleLevelMeter.o
+
+# target to build an object file
+src/gui/SimpleLevelMeter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o
+.PHONY : src/gui/SimpleLevelMeter.cpp.o
+
+src/gui/SimpleLevelMeter.i: src/gui/SimpleLevelMeter.cpp.i
+.PHONY : src/gui/SimpleLevelMeter.i
+
+# target to preprocess a source file
+src/gui/SimpleLevelMeter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.i
+.PHONY : src/gui/SimpleLevelMeter.cpp.i
+
+src/gui/SimpleLevelMeter.s: src/gui/SimpleLevelMeter.cpp.s
+.PHONY : src/gui/SimpleLevelMeter.s
+
+# target to generate assembly for a file
+src/gui/SimpleLevelMeter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.s
+.PHONY : src/gui/SimpleLevelMeter.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -752,6 +776,9 @@ help:
 	@echo "... src/gui/MixerPanel.o"
 	@echo "... src/gui/MixerPanel.i"
 	@echo "... src/gui/MixerPanel.s"
+	@echo "... src/gui/SimpleLevelMeter.o"
+	@echo "... src/gui/SimpleLevelMeter.i"
+	@echo "... src/gui/SimpleLevelMeter.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

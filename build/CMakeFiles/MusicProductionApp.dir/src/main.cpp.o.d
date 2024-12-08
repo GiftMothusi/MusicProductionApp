@@ -1454,6 +1454,6 @@ CMakeFiles/MusicProductionApp.dir/src/main.cpp.o: \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/audio_cd/juce_AudioCDBurner.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/audio_cd/juce_AudioCDReader.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/MainComponent.h \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/MixerPanel.h \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/../audio/AudioEngine.h \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/../audio/MidiHandler.h
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/AudioEngine.h \
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/SimpleLevelMeter.h \
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/MixerPanel.h

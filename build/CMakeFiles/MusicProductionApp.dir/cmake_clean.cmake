@@ -39,6 +39,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MusicProductionApp.dir/src/gui/MainComponent.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o"
   "CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o.d"
+  "CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o"
+  "CMakeFiles/MusicProductionApp.dir/src/gui/SimpleLevelMeter.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/main.cpp.o"
   "CMakeFiles/MusicProductionApp.dir/src/main.cpp.o.d"
   "MusicProductionApp_artefacts/JuceLibraryCode/JuceHeader.h"
