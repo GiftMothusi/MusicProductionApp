@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-class SimpleLevelMeter : public juce::Component, public::Timer {
+class SimpleLevelMeter : public juce::Component, public juce::Timer {
 public:
     SimpleLevelMeter();
     ~SimpleLevelMeter() override;
@@ -15,6 +15,4 @@ public:
 private:
     float leftLevel = 0.0f;
     float rightLevel = 0.0f;
-    
-    juce::Image background;
 };
