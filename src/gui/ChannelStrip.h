@@ -1,11 +1,13 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "ChannelAudioProcessor.h" 
 
 class ChannelStrip : public juce::Component,
                     public juce::Slider::Listener,
                     public juce::ComboBox::Listener,
-                    public juce::Button::Listener
+                    public juce::Button::Listener,
+                    public juce::Timer
 {
 public:
     ChannelStrip();
@@ -28,12 +30,23 @@ public:
     bool isSoloed() const;
     void updateMeterLevel(float level);
 
+    void timerCallback() override
+    {
+        updateMetersFromProcessor();
+    }
+
+
 private:
+
+    std::unique_ptr<ChannelAudioProcessor> processor;
+
     // Setup methods
     void createAndSetupSliders();
     void createAndSetupButtons();
     void createAndSetupLabels();
     void createAndSetupMeters();
+    void updateProcessorFromUI();
+    void updateMetersFromProcessor();
 
     // GUI Elements
     juce::Slider fader;           // Main volume fader

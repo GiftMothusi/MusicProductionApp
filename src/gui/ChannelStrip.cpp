@@ -204,6 +204,7 @@ void ChannelStrip::sliderValueChanged(juce::Slider* slider)
         DBG("Input Gain: " << gainKnob.getValue() << " dB");
     }
     // Handle EQ knobs...
+    updateProcessorFromUI();
 }
 
 void ChannelStrip::buttonClicked(juce::Button* button)
@@ -225,6 +226,7 @@ void ChannelStrip::buttonClicked(juce::Button* button)
         debugMessage << "Record: " << (recButton.getToggleState() ? "On" : "Off");
         DBG(debugMessage);
     }
+    updateProcessorFromUI();
 }
 
 void ChannelStrip::comboBoxChanged(juce::ComboBox* box)
@@ -273,4 +275,30 @@ bool ChannelStrip::isMuted() const
 bool ChannelStrip::isSoloed() const
 {
     return soloButton.getToggleState();
+}
+
+void ChannelStrip::updateProcessorFromUI()
+{
+    if (processor)
+    {
+        processor->setGain(gainKnob.getValue());
+        processor->setPan(panKnob.getValue());
+        processor->setVolume(fader.getValue());
+        processor->setMute(muteButton.getToggleState());
+        processor->setSolo(soloButton.getToggleState());
+    }
+}
+
+void ChannelStrip::updateMetersFromProcessor()
+{
+    if (processor)
+    {
+        updateMeterLevel(processor->getCurrentLevel());
+        
+        // Add visual feedback for clipping if needed
+        if (processor->isClipping())
+        {
+            // Change the meter color or add an indicator here
+        }
+    }
 }

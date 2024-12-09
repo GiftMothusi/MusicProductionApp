@@ -1457,4 +1457,5 @@ CMakeFiles/MusicProductionApp.dir/src/main.cpp.o: \
   /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/AudioEngine.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/SimpleLevelMeter.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/MixerPanel.h \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.h
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.h \
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelAudioProcessor.h
