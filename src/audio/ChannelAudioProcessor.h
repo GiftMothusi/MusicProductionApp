@@ -17,11 +17,15 @@ public:
     void setMute(bool shouldMute);
     void setSolo(bool shouldSolo);
     void setVolume(float newVolume);   // in dB
+    
+    void updateMeters(const juce::AudioBuffer<float>& buffer);
 
     // Parameter getters
     float getCurrentLevel() const { return currentLevel.load(); }
     float getPeakLevel() const { return peakLevel.load(); }
     bool isClipping() const { return clipping.load(); }
+
+    
 
 private:
     std::atomic<float> inputGain{1.0f};
@@ -38,7 +42,7 @@ private:
     // Processing helpers
     void applyGain(juce::AudioBuffer<float>& buffer);
     void applyPanning(juce::AudioBuffer<float>& buffer);
-    void updateMeters(const juce::AudioBuffer<float>& buffer);
+    
 
     double currentSampleRate{44100.0};
     float lastRmsLevel{0.0f};

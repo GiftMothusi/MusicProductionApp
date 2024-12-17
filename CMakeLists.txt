@@ -32,11 +32,12 @@ target_sources(MusicProductionApp
         src/main.cpp
         src/audio/AudioEngine.cpp
         src/audio/MidiHandler.cpp
+        src/audio/ChannelAudioProcessor.cpp
         src/gui/MainComponent.cpp
         src/gui/MixerPanel.cpp
         src/gui/SimpleLevelMeter.cpp
         src/gui/ChannelStrip.cpp
-        src/gui/ChannelAudioProcessor.cpp
+       
 )
 
 target_include_directories(MusicProductionApp

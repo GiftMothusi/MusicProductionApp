@@ -30,15 +30,18 @@ public:
     bool isSoloed() const;
     void updateMeterLevel(float level);
 
-    void timerCallback() override
+    void setAudioProcessor(ChannelAudioProcessor* newProcessor)
     {
-        updateMetersFromProcessor();
+       
+        processor = newProcessor;  // Just store the pointer
+        updateProcessorFromUI();
     }
 
+    void timerCallback() override;
 
 private:
 
-    std::unique_ptr<ChannelAudioProcessor> processor;
+    ChannelAudioProcessor* processor{nullptr};  // Non-owning pointer
 
     // Setup methods
     void createAndSetupSliders();

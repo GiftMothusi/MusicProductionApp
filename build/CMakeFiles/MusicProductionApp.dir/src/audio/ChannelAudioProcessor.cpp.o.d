@@ -1,6 +1,6 @@
-CMakeFiles/MusicProductionApp.dir/src/gui/ChannelAudioProcessor.cpp.o: \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelAudioProcessor.cpp \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelAudioProcessor.h \
+CMakeFiles/MusicProductionApp.dir/src/audio/ChannelAudioProcessor.cpp.o: \
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/ChannelAudioProcessor.cpp \
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/ChannelAudioProcessor.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/build/MusicProductionApp_artefacts/JuceLibraryCode/JuceHeader.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_basics/juce_audio_basics.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_core/juce_core.h \

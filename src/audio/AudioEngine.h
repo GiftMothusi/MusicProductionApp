@@ -1,6 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "ChannelAudioProcessor.h"
 
 class AudioEngine : public juce::AudioIODeviceCallback,
                     public juce::ChangeBroadcaster  
@@ -24,6 +25,12 @@ public:
     void audioDeviceAboutToStart(juce::AudioIODevice* device) override;
     void audioDeviceStopped() override;
 
+    // Channel Management
+    void addChannel();
+    void removeChannel(int index);
+    int getNumChannels() const { return channelProcessors.size(); }
+    ChannelAudioProcessor* getChannelProcessor(int index);
+
     // Getters for audio state
     bool isAudioInitialised() const { return audioInitialised; }
     double getCurrentSampleRate() const { return currentSampleRate; }
@@ -43,13 +50,16 @@ public:
 
 private:
     juce::AudioDeviceManager deviceManager;
+    std::vector<std::unique_ptr<ChannelAudioProcessor>> channelProcessors;
+    juce::AudioBuffer<float> mixBuffer;
+
     std::atomic<double> currentSampleRate{0.0};
     std::atomic<int> currentBlockSize{0};
     std::atomic<bool> audioInitialised{false};
     std::atomic<float> mainVolume{1.0f};
 
     juce::CriticalSection processAudioLock;
-    juce::AudioBuffer<float> mixBuffer;
+   
 
     // New members to track left and right channel levels
     std::atomic<float> leftLevel{0.0f};

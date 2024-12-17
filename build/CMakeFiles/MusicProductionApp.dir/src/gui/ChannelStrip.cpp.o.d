@@ -1454,4 +1454,4 @@ CMakeFiles/MusicProductionApp.dir/src/gui/ChannelStrip.cpp.o: \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/players/juce_AudioProcessorPlayer.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/audio_cd/juce_AudioCDBurner.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/audio_cd/juce_AudioCDReader.h \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelAudioProcessor.h
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/ChannelAudioProcessor.h

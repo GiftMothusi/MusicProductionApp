@@ -127,10 +127,21 @@ void ChannelStrip::paint(juce::Graphics& g)
     g.setColour(juce::Colours::black);
     g.fillRect(meterBounds);
 
-    // Level meter value
-    g.setColour(juce::Colours::green);
-    const int meterHeight = static_cast<int>(meterBounds.getHeight() * meterLevel);
-    g.fillRect(meterBounds.removeFromBottom(meterHeight));
+    // Convert linear level to dB for visualization
+    float dbLevel = juce::Decibels::gainToDecibels(meterLevel, -60.0f);
+    float normalizedLevel = jmap(dbLevel, -60.0f, 6.0f, 0.0f, 1.0f);
+
+    if (normalizedLevel > 0.0f)
+    {
+        auto levelBounds = meterBounds.removeFromBottom(meterBounds.getHeight() * normalizedLevel);
+        g.setGradientFill(juce::ColourGradient(
+            juce::Colours::green,
+            levelBounds.getBottomLeft().toFloat(),
+            juce::Colours::red,
+            levelBounds.getTopLeft().toFloat(),
+            false));
+        g.fillRect(levelBounds);
+    }
 }
 
 void ChannelStrip::resized()
@@ -300,5 +311,24 @@ void ChannelStrip::updateMetersFromProcessor()
         {
             // Change the meter color or add an indicator here
         }
+    }
+}
+
+
+void ChannelStrip::timerCallback()
+{
+    if (processor)
+    {
+        // Update meter level
+        float level = processor->getCurrentLevel();
+        meterLevel = level;
+        
+        // Check for clipping
+        if (processor->isClipping())
+        {
+            // Could add visual clipping indicator here
+        }
+        
+        repaint();
     }
 }

@@ -50,46 +50,82 @@ bool AudioEngine::setAudioDevice(const juce::String& deviceName, double sampleRa
 }
 
 void AudioEngine::audioDeviceIOCallback(const float** inputChannelData,
-                                        int numInputChannels,
-                                        float** outputChannelData,
-                                        int numOutputChannels,
-                                        int numSamples)
+                                      int numInputChannels,
+                                      float** outputChannelData,
+                                      int numOutputChannels,
+                                      int numSamples)
 {
     const juce::ScopedLock sl(processAudioLock);
 
-    // Clear outputs first
-    for (int channel = 0; channel < numOutputChannels; ++channel)
-        if (outputChannelData[channel] != nullptr)
-            juce::FloatVectorOperations::clear(outputChannelData[channel], numSamples);
+    // Clear mix buffer and resize if needed
+    if (mixBuffer.getNumSamples() != numSamples || mixBuffer.getNumChannels() != 2)
+        mixBuffer.setSize(2, numSamples, false, false, true);
+    mixBuffer.clear();
 
-    // Process audio and apply main volume
-    if (numOutputChannels > 0)
+    // Process each channel
+    for (size_t i = 0; i < channelProcessors.size(); ++i)
     {
-        const float currentMainVolume = mainVolume.load();
-
-        for (int channel = 0; channel < numOutputChannels; ++channel)
+        if (auto* processor = channelProcessors[i].get())
         {
-            if (outputChannelData[channel] != nullptr)
+            // Create working buffer for this channel
+            juce::AudioBuffer<float> channelBuffer(2, numSamples);
+            
+            // Copy input if available
+            if (numInputChannels > 0)
             {
-                if (channel < numInputChannels && inputChannelData[channel] != nullptr)
+                for (int chan = 0; chan < channelBuffer.getNumChannels(); ++chan)
                 {
-                    juce::FloatVectorOperations::multiply(outputChannelData[channel],
-                                                          inputChannelData[channel],
-                                                          currentMainVolume,
-                                                          numSamples);
-                    
-                    // Calculate RMS levels for left (channel 0) and right (channel 1)
-                    float rmsLevel = juce::FloatVectorOperations::findMinAndMax(inputChannelData[channel], numSamples).getEnd();
-                    if (channel == 0)
-                        leftLevel.store(rmsLevel);
-                    if (channel == 1)
-                        rightLevel.store(rmsLevel);
+                    if (inputChannelData[chan % numInputChannels] != nullptr)
+                    {
+                        channelBuffer.copyFrom(chan, 0, 
+                                             inputChannelData[chan % numInputChannels], 
+                                             numSamples);
+                    }
                 }
+            }
+
+            // Process the channel
+            processor->processBlock(channelBuffer);
+
+            // Update channel meters
+            float rmsLevel = (channelBuffer.getRMSLevel(0, 0, numSamples) + 
+                            channelBuffer.getRMSLevel(1, 0, numSamples)) * 0.5f;
+            processor->updateMeters(channelBuffer);
+
+            // Add to mix buffer
+            for (int chan = 0; chan < mixBuffer.getNumChannels(); ++chan)
+            {
+                mixBuffer.addFrom(chan, 0, channelBuffer, chan, 0, numSamples);
             }
         }
     }
-}
 
+    // Apply main volume to mix buffer
+    mixBuffer.applyGain(mainVolume.load());
+
+    // Copy mixed output to device output
+    for (int chan = 0; chan < numOutputChannels; ++chan)
+    {
+        if (outputChannelData[chan] != nullptr)
+        {
+            if (chan < mixBuffer.getNumChannels())
+            {
+                juce::FloatVectorOperations::copy(outputChannelData[chan],
+                                                mixBuffer.getReadPointer(chan),
+                                                numSamples);
+            }
+            else
+            {
+                juce::FloatVectorOperations::clear(outputChannelData[chan], 
+                                                 numSamples);
+            }
+        }
+    }
+
+    // Update main output meters
+    leftLevel.store(mixBuffer.getRMSLevel(0, 0, numSamples));
+    rightLevel.store(mixBuffer.getRMSLevel(1, 0, numSamples));
+}
 void AudioEngine::audioDeviceAboutToStart(juce::AudioIODevice* device)
 {
     currentSampleRate = device->getCurrentSampleRate();
@@ -97,6 +133,13 @@ void AudioEngine::audioDeviceAboutToStart(juce::AudioIODevice* device)
 
     mixBuffer.setSize(2, currentBlockSize);
     mixBuffer.clear();
+
+    // Prepare all channel processors
+    for (auto& processor : channelProcessors)
+    {
+        if (processor)
+            processor->prepareToPlay(currentSampleRate, currentBlockSize);
+    }
 }
 
 void AudioEngine::audioDeviceStopped()
@@ -104,6 +147,37 @@ void AudioEngine::audioDeviceStopped()
     currentSampleRate = 0.0;
     currentBlockSize = 0;
     mixBuffer.setSize(0, 0);
+
+    // Release all channel processors
+    for (auto& processor : channelProcessors)
+    {
+        if (processor)
+            processor->releaseResources();
+    }
+}
+
+void AudioEngine::addChannel()
+{
+    const juce::ScopedLock sl(processAudioLock);
+    auto processor = std::make_unique<ChannelAudioProcessor>();
+    if (currentSampleRate > 0.0)
+        processor->prepareToPlay(currentSampleRate, currentBlockSize);
+    channelProcessors.push_back(std::move(processor));
+}
+
+
+void AudioEngine::removeChannel(int index)
+{
+    const juce::ScopedLock sl(processAudioLock);
+    if (index >= 0 && index < channelProcessors.size())
+        channelProcessors.erase(channelProcessors.begin() + index);
+}
+
+ChannelAudioProcessor* AudioEngine::getChannelProcessor(int index)
+{
+    if (index >= 0 && index < channelProcessors.size())
+        return channelProcessors[index].get();
+    return nullptr;
 }
 
 void AudioEngine::setMainVolume(float newVolume)

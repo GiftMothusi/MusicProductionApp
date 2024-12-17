@@ -1,8 +1,6 @@
 #include "MainComponent.h"
 
 MainComponent::MainComponent()
-    : audioDeviceSelector("Audio Device"),
-      volumeSlider("Volume")
 {
     // Setup audio device selector
     audioDeviceSelector.addListener(this);
@@ -16,23 +14,58 @@ MainComponent::MainComponent()
     // Add the level meter
     addAndMakeVisible(levelMeter);
 
-    // Add the mixer panel
+    // Initialize audio engine
+    audioEngine = std::make_unique<AudioEngine>();
+
+    // Add the mixer panel and connect it to the audio engine
+    mixerPanel = std::make_unique<MixerPanel>();
+    mixerPanel->setAudioEngine(audioEngine.get());
     addAndMakeVisible(*mixerPanel);
 
     // Start timer for meter updates
     startTimer(50);
 }
 
+
 MainComponent::~MainComponent() {
 }
 
 void MainComponent::prepareToPlay(int samplesPerBlockExpected, double sampleRate) {
-    audioEngine->prepareToPlay(samplesPerBlockExpected, sampleRate);
+    if (audioEngine)
+    {
+        juce::String device = audioEngine->getDeviceManager().getCurrentAudioDevice()->getName();
+        audioEngine->setAudioDevice(device, sampleRate, samplesPerBlockExpected);
+    }
 }
 
 void MainComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) {
-    audioEngine->getNextAudioBlock(bufferToFill);
-    levelMeter.setLevel(audioEngine->getLeftLevel(), audioEngine->getRightLevel());
+    // Get audio input and handle const-correctness
+    const float** inputChannelData = const_cast<const float**>(bufferToFill.buffer->getArrayOfReadPointers());
+    float** outputChannelData = const_cast<float**>(bufferToFill.buffer->getArrayOfWritePointers());
+    const int numInputChannels = bufferToFill.buffer->getNumChannels();
+    const int numOutputChannels = bufferToFill.buffer->getNumChannels();
+    const int numSamples = bufferToFill.numSamples;
+
+    // Process audio through engine
+    audioEngine->audioDeviceIOCallback(
+        inputChannelData,
+        numInputChannels,
+        outputChannelData,
+        numOutputChannels,
+        numSamples
+    );
+
+    // Calculate RMS levels for the main meter
+    float leftLevel = 0.0f;
+    float rightLevel = 0.0f;
+
+    if (numOutputChannels >= 1)
+        leftLevel = bufferToFill.buffer->getRMSLevel(0, 0, numSamples);
+    if (numOutputChannels >= 2)
+        rightLevel = bufferToFill.buffer->getRMSLevel(1, 0, numSamples);
+
+    // Update the main level meter
+    levelMeter.setLevel(leftLevel, rightLevel);
 }
 
 void MainComponent::releaseResources() {
