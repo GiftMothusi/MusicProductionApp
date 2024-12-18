@@ -12,6 +12,11 @@ public:
     AudioEngine();
     ~AudioEngine() override;
 
+    juce::StringArray getAvailableInputs() const;
+    juce::StringArray getAvailableOutputs() const;
+    bool setChannelInput(int channelIndex, int inputIndex);
+    bool setChannelOutput(int channelIndex, int outputIndex);
+
     void changeListenerCallback(juce::ChangeBroadcaster* source) override;
 
     // Device Management
@@ -54,6 +59,8 @@ public:
 
 private:
     AudioRouting router; 
+    void updateRoutingOptions();
+    
     juce::AudioDeviceManager deviceManager;
     std::vector<std::unique_ptr<ChannelAudioProcessor>> channelProcessors;
     juce::AudioBuffer<float> mixBuffer;

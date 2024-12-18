@@ -17,13 +17,19 @@ public:
     void setMute(bool shouldMute);
     void setSolo(bool shouldSolo);
     void setVolume(float newVolume);   // in dB
-    
+
     void updateMeters(const juce::AudioBuffer<float>& buffer);
 
     // Parameter getters
     float getCurrentLevel() const { return currentLevel.load(); }
     float getPeakLevel() const { return peakLevel.load(); }
     bool isClipping() const { return clipping.load(); }
+
+
+    void setInput(int inputIndex);
+    void setOutput(int outputIndex);
+    int getInput() const { return currentInput; }
+    int getOutput() const { return currentOutput; }
 
     
 
@@ -47,4 +53,7 @@ private:
     double currentSampleRate{44100.0};
     float lastRmsLevel{0.0f};
     const float meterSmoothingCoeff{0.8f};
+
+    int currentInput{-1};  // -1 means no input
+    int currentOutput{0};  // 0 means main output
 };

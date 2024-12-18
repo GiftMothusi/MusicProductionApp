@@ -11,6 +11,7 @@ public:
     MixerPanel();
     ~MixerPanel() override;
 
+    void updateRoutingOptions();
     void paint(juce::Graphics&) override;
     void resized() override;
 
@@ -21,6 +22,8 @@ public:
 private:
     AudioEngine* audioEngine{nullptr};
     std::vector<std::unique_ptr<ChannelStrip>> channelStrips;
+
+    void refreshChannelRoutingOptions();
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MixerPanel)
 };

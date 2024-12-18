@@ -82,3 +82,22 @@ void MixerPanel::removeChannel(int index)
         resized();
     }
 }
+
+void MixerPanel::updateRoutingOptions()
+{
+    if (audioEngine)
+    {
+        auto inputs = audioEngine->getAvailableInputs();
+        auto outputs = audioEngine->getAvailableOutputs();
+        
+        for (auto& strip : channelStrips)
+        {
+            strip->updateRoutingOptions(inputs, outputs);
+        }
+    }
+}
+
+void MixerPanel::refreshChannelRoutingOptions()
+{
+    updateRoutingOptions();
+}

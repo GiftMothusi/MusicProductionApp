@@ -280,13 +280,26 @@ void ChannelStrip::buttonClicked(juce::Button* button)
 
 void ChannelStrip::comboBoxChanged(juce::ComboBox* box)
 {
+    if (!processor)
+        return;
+
     if (box == &inputSelector)
     {
-        DBG("Input changed to: " << box->getSelectedId());
+        int inputIndex = box->getSelectedItemIndex() - 1;  // -1 because first item is "No Input"
+        if (inputIndex >= 0)
+        {
+            // Handle input selection
+            processor->setInput(inputIndex);
+        }
     }
     else if (box == &outputSelector)
     {
-        DBG("Output changed to: " << box->getSelectedId());
+        int outputIndex = box->getSelectedItemIndex() - 1;  // -1 because first item is "Main Output"
+        if (outputIndex >= 0)
+        {
+            // Handle output selection
+            processor->setOutput(outputIndex);
+        }
     }
 }
 

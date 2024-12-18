@@ -104,3 +104,13 @@ void ChannelAudioProcessor::setVolume(float newVolume)
     // Convert dB to linear gain
     volume.store(juce::Decibels::decibelsToGain(newVolume));
 }
+
+void ChannelAudioProcessor::setInput(int inputIndex)
+{
+    currentInput = inputIndex;
+}
+
+void ChannelAudioProcessor::setOutput(int outputIndex)
+{
+    currentOutput = outputIndex;
+}

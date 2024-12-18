@@ -120,8 +120,8 @@ void AudioEngine::audioDeviceIOCallback(const float** inputChannelData,
     }
 
     // Clear mix buffer and resize if needed
-    if (mixBuffer.getNumSamples() != numSamples || mixBuffer.getNumChannels() != 2)
-        mixBuffer.setSize(2, numSamples, false, false, true);
+    if (mixBuffer.getNumSamples() != numSamples || mixBuffer.getNumChannels() != numOutputChannels)
+        mixBuffer.setSize(numOutputChannels, numSamples, false, false, true);
     mixBuffer.clear();
 
     // Process each channel
@@ -133,16 +133,19 @@ void AudioEngine::audioDeviceIOCallback(const float** inputChannelData,
             juce::AudioBuffer<float> channelBuffer(2, numSamples);
             channelBuffer.clear();
             
-            // Copy input if available (Basic stereo routing - can be enhanced for more complex routing)
-            if (numInputChannels > 0)
+            // Get the input routing for this channel
+            int inputIndex = processor->getInput();
+            
+            // Copy input if available and routed
+            if (inputIndex >= 0 && inputIndex < numInputChannels)
             {
-                // Route mono input to both channels or stereo if available
+                // Copy the routed input to both channels for now (can be enhanced for stereo routing)
                 for (int chan = 0; chan < channelBuffer.getNumChannels(); ++chan)
                 {
-                    if (inputChannelData[chan % numInputChannels] != nullptr)
+                    if (inputChannelData[inputIndex] != nullptr)
                     {
                         channelBuffer.copyFrom(chan, 0, 
-                                             inputChannelData[chan % numInputChannels], 
+                                             inputChannelData[inputIndex], 
                                              numSamples);
                     }
                 }
@@ -151,10 +154,19 @@ void AudioEngine::audioDeviceIOCallback(const float** inputChannelData,
             // Process the channel
             processor->processBlock(channelBuffer);
 
-            // Add to mix buffer
-            for (int chan = 0; chan < mixBuffer.getNumChannels(); ++chan)
+            // Get the output routing for this channel
+            int outputIndex = processor->getOutput();
+            
+            // Add to appropriate outputs in mix buffer
+            if (outputIndex >= 0 && outputIndex < numOutputChannels)
             {
-                mixBuffer.addFrom(chan, 0, channelBuffer, chan, 0, numSamples);
+                // For now, route to the specified output and the next channel (for stereo)
+                for (int chan = 0; chan < juce::jmin(2, numOutputChannels - outputIndex); ++chan)
+                {
+                    mixBuffer.addFrom(outputIndex + chan, 0,
+                                    channelBuffer, chan, 0,
+                                    numSamples);
+                }
             }
         }
     }
@@ -180,7 +192,7 @@ void AudioEngine::audioDeviceIOCallback(const float** inputChannelData,
         }
     }
 
-    // Update main output meters
+    // Update meters
     leftLevel.store(mixBuffer.getRMSLevel(0, 0, numSamples));
     rightLevel.store(mixBuffer.getRMSLevel(1, 0, numSamples));
 }
@@ -270,4 +282,53 @@ float AudioEngine::getLeftLevel() const
 float AudioEngine::getRightLevel() const
 {
     return rightLevel.load();
+}
+
+void AudioEngine::updateRoutingOptions()
+{
+    auto* device = deviceManager.getCurrentAudioDevice();
+    if (device)
+    {
+        // Get input names from current device
+        juce::StringArray inputNames;
+        for (int i = 0; i < device->getInputChannelNames().size(); ++i)
+        {
+            inputNames.add("Input " + juce::String(i + 1) + ": " + 
+                          device->getInputChannelNames()[i]);
+        }
+        router.updateAvailableInputs(inputNames);
+
+        // Get output names from current device
+        juce::StringArray outputNames;
+        for (int i = 0; i < device->getOutputChannelNames().size(); ++i)
+        {
+            outputNames.add("Output " + juce::String(i + 1) + ": " + 
+                          device->getOutputChannelNames()[i]);
+        }
+        router.updateAvailableOutputs(outputNames);
+    }
+}
+
+juce::StringArray AudioEngine::getAvailableInputs() const
+{
+    return router.getAvailableInputs();
+}
+
+juce::StringArray AudioEngine::getAvailableOutputs() const
+{
+    return router.getAvailableOutputs();
+}
+
+bool AudioEngine::setChannelInput(int channelIndex, int inputIndex)
+{
+    AudioRouting::RoutingPoint point{AudioRouting::RoutingPoint::Type::HardwareInput, 
+                                   inputIndex, ""};
+    return router.connectInput(channelIndex, point);
+}
+
+bool AudioEngine::setChannelOutput(int channelIndex, int outputIndex)
+{
+    AudioRouting::RoutingPoint point{AudioRouting::RoutingPoint::Type::HardwareOutput, 
+                                   outputIndex, ""};
+    return router.connectOutput(channelIndex, point);
 }
