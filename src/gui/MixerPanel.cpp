@@ -34,6 +34,8 @@ void MixerPanel::resized()
 
 void MixerPanel::setAudioEngine(AudioEngine* engine)
 {
+    if (!engine) return;
+    
     audioEngine = engine;
     
     // Connect existing channels
@@ -42,7 +44,8 @@ void MixerPanel::setAudioEngine(AudioEngine* engine)
         if (audioEngine)
         {
             audioEngine->addChannel();
-            if (auto processor = audioEngine->getChannelProcessor(i))
+            auto processor = audioEngine->getChannelProcessor(i);
+            if (processor && channelStrips[i])
             {
                 // Connect channel strip to processor
                 channelStrips[i]->setAudioProcessor(processor);

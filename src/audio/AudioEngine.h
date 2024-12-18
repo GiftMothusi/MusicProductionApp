@@ -4,11 +4,14 @@
 #include "ChannelAudioProcessor.h"
 
 class AudioEngine : public juce::AudioIODeviceCallback,
-                    public juce::ChangeBroadcaster  
+                    public juce::ChangeBroadcaster,
+                    public juce::ChangeListener  
 {
 public:
     AudioEngine();
     ~AudioEngine() override;
+
+    void changeListenerCallback(juce::ChangeBroadcaster* source) override;
 
     // Device Management
     void initialiseAudio();

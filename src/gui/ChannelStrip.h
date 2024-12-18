@@ -29,14 +29,7 @@ public:
     bool isMuted() const;
     bool isSoloed() const;
     void updateMeterLevel(float level);
-
-    void setAudioProcessor(ChannelAudioProcessor* newProcessor)
-    {
-       
-        processor = newProcessor;  // Just store the pointer
-        updateProcessorFromUI();
-    }
-
+    void setAudioProcessor(ChannelAudioProcessor* newProcessor); 
     void timerCallback() override;
 
 private:

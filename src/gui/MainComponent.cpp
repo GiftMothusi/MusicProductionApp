@@ -1,7 +1,15 @@
 #include "MainComponent.h"
 
 MainComponent::MainComponent()
+    : audioDeviceSelector("Audio Device"),
+      volumeSlider("Volume")
 {
+    audioEngine = std::make_unique<AudioEngine>();
+    
+    // Setup audio device selector with available devices
+    addAndMakeVisible(audioDeviceSelector);
+    audioDeviceSelector.addListener(this);
+    initialiseAudioDeviceSelector();
     // Setup audio device selector
     audioDeviceSelector.addListener(this);
     addAndMakeVisible(audioDeviceSelector);
@@ -14,31 +22,26 @@ MainComponent::MainComponent()
     // Add the level meter
     addAndMakeVisible(levelMeter);
 
-    // Initialize audio engine
-    audioEngine = std::make_unique<AudioEngine>();
-
-    // Add the mixer panel and connect it to the audio engine
-    mixerPanel = std::make_unique<MixerPanel>();
-    mixerPanel->setAudioEngine(audioEngine.get());
+    // Add the mixer panel
     addAndMakeVisible(*mixerPanel);
 
     // Start timer for meter updates
     startTimer(50);
 }
 
-
 MainComponent::~MainComponent() {
 }
 
 void MainComponent::prepareToPlay(int samplesPerBlockExpected, double sampleRate) {
-    if (audioEngine)
-    {
-        juce::String device = audioEngine->getDeviceManager().getCurrentAudioDevice()->getName();
-        audioEngine->setAudioDevice(device, sampleRate, samplesPerBlockExpected);
-    }
+    audioEngine->prepareToPlay(samplesPerBlockExpected, sampleRate);
 }
 
-void MainComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill) {
+
+void MainComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo& bufferToFill)
+{
+    if (!audioEngine)
+        return;
+
     // Get audio input and handle const-correctness
     const float** inputChannelData = const_cast<const float**>(bufferToFill.buffer->getArrayOfReadPointers());
     float** outputChannelData = const_cast<float**>(bufferToFill.buffer->getArrayOfWritePointers());
@@ -55,27 +58,75 @@ void MainComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo& buffer
         numSamples
     );
 
-    // Calculate RMS levels for the main meter
-    float leftLevel = 0.0f;
-    float rightLevel = 0.0f;
-
-    if (numOutputChannels >= 1)
-        leftLevel = bufferToFill.buffer->getRMSLevel(0, 0, numSamples);
-    if (numOutputChannels >= 2)
-        rightLevel = bufferToFill.buffer->getRMSLevel(1, 0, numSamples);
-
     // Update the main level meter
-    levelMeter.setLevel(leftLevel, rightLevel);
+    if (numOutputChannels >= 2)
+    {
+        float leftLevel = bufferToFill.buffer->getRMSLevel(0, 0, numSamples);
+        float rightLevel = bufferToFill.buffer->getRMSLevel(1, 0, numSamples);
+        levelMeter.setLevel(leftLevel, rightLevel);
+    }
 }
 
 void MainComponent::releaseResources() {
     audioEngine->releaseResources();
 }
 
+
+
+void MainComponent::initialiseAudioDeviceSelector()
+{
+    audioDeviceSelector.clear();
+    audioDeviceSelector.addItem("System Default", 1);
+    
+    if (audioEngine)
+    {
+        auto& deviceManager = const_cast<juce::AudioDeviceManager&>(audioEngine->getDeviceManager());
+        auto& deviceTypes = deviceManager.getAvailableDeviceTypes();
+        
+        if (!deviceTypes.isEmpty())
+        {
+            auto names = deviceTypes[0]->getDeviceNames();
+            int itemId = 2;
+            for (const auto& name : names)
+            {
+                audioDeviceSelector.addItem(name, itemId++);
+            }
+        }
+        
+        // Select current device
+        auto* currentDevice = deviceManager.getCurrentAudioDevice();
+        if (currentDevice != nullptr)
+        {
+            const juce::String currentName = currentDevice->getName();
+            for (int i = 0; i < audioDeviceSelector.getNumItems(); ++i)
+            {
+                if (audioDeviceSelector.getItemText(i) == currentName)
+                {
+                    audioDeviceSelector.setSelectedItemIndex(i);
+                    break;
+                }
+            }
+        }
+    }
+}
+
 void MainComponent::comboBoxChanged(juce::ComboBox* box) {
-    if (box == &audioDeviceSelector) {
-        int selectedIndex = audioDeviceSelector.getSelectedItemIndex();
-        audioEngine->setAudioDevice(audioEngine->getDeviceManager().getAudioDeviceSetup().outputDeviceName, audioEngine->getCurrentSampleRate(), audioEngine->getCurrentBufferSize());
+    if (box == &audioDeviceSelector && audioEngine)
+    {
+        if (audioDeviceSelector.getSelectedId() == 1)
+        {
+            // System Default selected
+            audioEngine->initialiseAudio();
+        }
+        else
+        {
+            juce::String deviceName = audioDeviceSelector.getText();
+            double sampleRate = audioEngine->getCurrentSampleRate();
+            int bufferSize = audioEngine->getCurrentBufferSize();
+            
+            // Change device with current settings
+            audioEngine->setAudioDevice(deviceName, sampleRate, bufferSize);
+        }
     }
 }
 
@@ -86,6 +137,12 @@ void MainComponent::sliderValueChanged(juce::Slider* slider) {
 }
 
 void MainComponent::timerCallback() {
+    if (audioEngine)
+    {
+        float leftLevel = audioEngine->getLeftLevel();
+        float rightLevel = audioEngine->getRightLevel();
+        levelMeter.setLevel(leftLevel, rightLevel);
+    }
     repaint();
 }
 

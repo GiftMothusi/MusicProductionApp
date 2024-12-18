@@ -28,6 +28,7 @@ public:
 
 
 private:
+    void initialiseAudioDeviceSelector();
     std::unique_ptr<AudioEngine> audioEngine = std::make_unique<AudioEngine>();
     std::unique_ptr<MixerPanel> mixerPanel = std::make_unique<MixerPanel>();
     SimpleLevelMeter levelMeter;

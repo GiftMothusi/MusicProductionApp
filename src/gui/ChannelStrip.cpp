@@ -2,10 +2,16 @@
 
 ChannelStrip::ChannelStrip()
 {
+    processor = nullptr;
+    meterLevel = 0.0f;
+    wasJustDragged = false;
+
     createAndSetupSliders();
     createAndSetupButtons();
     createAndSetupLabels();
     createAndSetupMeters();
+
+    startTimerHz(30);
 }
 
 ChannelStrip::~ChannelStrip()
@@ -127,21 +133,37 @@ void ChannelStrip::paint(juce::Graphics& g)
     g.setColour(juce::Colours::black);
     g.fillRect(meterBounds);
 
-    // Convert linear level to dB for visualization
-    float dbLevel = juce::Decibels::gainToDecibels(meterLevel, -60.0f);
-    float normalizedLevel = jmap(dbLevel, -60.0f, 6.0f, 0.0f, 1.0f);
-
-    if (normalizedLevel > 0.0f)
+    // Draw meter level
+    if (meterLevel > 0.0f)
     {
-        auto levelBounds = meterBounds.removeFromBottom(meterBounds.getHeight() * normalizedLevel);
-        g.setGradientFill(juce::ColourGradient(
-            juce::Colours::green,
-            levelBounds.getBottomLeft().toFloat(),
-            juce::Colours::red,
-            levelBounds.getTopLeft().toFloat(),
-            false));
+        auto levelBounds = meterBounds.removeFromBottom(
+            (int)(meterBounds.getHeight() * meterLevel));
+
+        // Create gradient based on level
+        if (meterLevel > 0.8f)
+        {
+            g.setColour(juce::Colours::red);
+        }
+        else if (meterLevel > 0.6f)
+        {
+            g.setColour(juce::Colours::yellow);
+        }
+        else
+        {
+            g.setColour(juce::Colours::green);
+        }
+        
         g.fillRect(levelBounds);
     }
+}
+
+
+void ChannelStrip::setAudioProcessor(ChannelAudioProcessor* newProcessor)
+{
+    if (!newProcessor) return;
+    
+    processor = newProcessor;
+    updateProcessorFromUI();
 }
 
 void ChannelStrip::resized()
@@ -254,8 +276,12 @@ void ChannelStrip::comboBoxChanged(juce::ComboBox* box)
 
 void ChannelStrip::updateMeterLevel(float level)
 {
-    meterLevel = juce::jlimit(0.0f, 1.0f, level);
-    repaint();
+   // Convert level to dB for better visualization
+    float dbLevel = juce::Decibels::gainToDecibels(level, -60.0f);
+    meterLevel = juce::jmap(dbLevel, -60.0f, 6.0f, 0.0f, 1.0f);
+    
+    // Ensure the level is within bounds
+    meterLevel = juce::jlimit(0.0f, 1.0f, meterLevel);
 }
 
 void ChannelStrip::setInputSource(int sourceIndex)
@@ -292,9 +318,9 @@ void ChannelStrip::updateProcessorFromUI()
 {
     if (processor)
     {
-        processor->setGain(gainKnob.getValue());
-        processor->setPan(panKnob.getValue());
-        processor->setVolume(fader.getValue());
+        processor->setGain(static_cast<float>(gainKnob.getValue()));
+        processor->setPan(static_cast<float>(panKnob.getValue()));
+        processor->setVolume(static_cast<float>(fader.getValue()));
         processor->setMute(muteButton.getToggleState());
         processor->setSolo(soloButton.getToggleState());
     }
@@ -319,14 +345,17 @@ void ChannelStrip::timerCallback()
 {
     if (processor)
     {
-        // Update meter level
+        // Get the current level from the processor
         float level = processor->getCurrentLevel();
-        meterLevel = level;
         
-        // Check for clipping
+        // Update meter level
+        updateMeterLevel(level);
+        
+        // Handle peak indicators if needed
         if (processor->isClipping())
         {
-            // Could add visual clipping indicator here
+            // You could add visual feedback for clipping here
+            // For example, change the meter color temporarily
         }
         
         repaint();
