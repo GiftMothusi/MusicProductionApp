@@ -16,6 +16,7 @@ public:
     juce::StringArray getAvailableOutputs() const;
     bool setChannelInput(int channelIndex, int inputIndex);
     bool setChannelOutput(int channelIndex, int outputIndex);
+    void updateRoutingOptions();
 
     void changeListenerCallback(juce::ChangeBroadcaster* source) override;
 
@@ -59,7 +60,6 @@ public:
 
 private:
     AudioRouting router; 
-    void updateRoutingOptions();
     
     juce::AudioDeviceManager deviceManager;
     std::vector<std::unique_ptr<ChannelAudioProcessor>> channelProcessors;

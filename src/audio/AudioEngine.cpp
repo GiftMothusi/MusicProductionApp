@@ -48,6 +48,7 @@ void AudioEngine::initialiseAudio()
 
         // Add a callback for device type change
         deviceManager.addChangeListener(this);
+        updateRoutingOptions();
     }
     else
     {
@@ -65,6 +66,7 @@ void AudioEngine::changeListenerCallback(juce::ChangeBroadcaster* source)
         {
             currentSampleRate = device->getCurrentSampleRate();
             currentBlockSize = device->getCurrentBufferSizeSamples();
+            updateRoutingOptions();
 
             // Notify channel processors of the change
             for (auto& processor : channelProcessors)

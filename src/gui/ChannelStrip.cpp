@@ -178,20 +178,19 @@ void ChannelStrip::resized()
 {
     auto bounds = getLocalBounds().reduced(4);
     const int comboBoxHeight = 24;
+    const int spacing = 4;
+    const int buttonHeight = 20;
+    const int knobSize = 60;
+    const int labelHeight = 20;
 
+     // Channel label at top
+    channelLabel.setBounds(bounds.removeFromTop(labelHeight));
+    bounds.removeFromTop(4);
 
     inputSelector.setBounds(bounds.removeFromTop(comboBoxHeight));
     bounds.removeFromTop(4); // spacing
     outputSelector.setBounds(bounds.removeFromTop(comboBoxHeight));
-    bounds.removeFromTop(4);
 
-    const int buttonHeight = 20;
-    const int knobSize = 60;
-    const int labelHeight = 20;
-    const int spacing = 4;
-
-    // Channel label at top
-    channelLabel.setBounds(bounds.removeFromTop(labelHeight));
 
     // Top row buttons
     auto buttonRow = bounds.removeFromTop(buttonHeight);

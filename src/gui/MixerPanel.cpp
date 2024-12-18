@@ -52,6 +52,7 @@ void MixerPanel::setAudioEngine(AudioEngine* engine)
             }
         }
     }
+    updateRoutingOptions();
 }
 
 void MixerPanel::addChannel()
