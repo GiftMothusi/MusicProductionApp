@@ -37,6 +37,7 @@ void MixerPanel::setAudioEngine(AudioEngine* engine)
     if (!engine) return;
     
     audioEngine = engine;
+    audioEngine->addChangeListener(this);
     
     // Connect existing channels
     for (size_t i = 0; i < channelStrips.size(); ++i)
@@ -53,6 +54,15 @@ void MixerPanel::setAudioEngine(AudioEngine* engine)
         }
     }
     updateRoutingOptions();
+}
+
+
+void MixerPanel::changeListenerCallback(juce::ChangeBroadcaster* source)
+{
+    if (source == audioEngine)
+    {
+        updateRoutingOptions();
+    }
 }
 
 void MixerPanel::addChannel()
@@ -93,7 +103,10 @@ void MixerPanel::updateRoutingOptions()
         
         for (auto& strip : channelStrips)
         {
-            strip->updateRoutingOptions(inputs, outputs);
+            if (strip)
+            {
+                strip->updateRoutingOptions(inputs, outputs);
+            }
         }
     }
 }

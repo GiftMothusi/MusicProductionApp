@@ -5,7 +5,8 @@
 #include "AudioEngine.h"
 
 
-class MixerPanel : public juce::Component
+class MixerPanel : public juce::Component,
+                    public juce::ChangeListener
 {
 public:
     MixerPanel();
@@ -18,6 +19,7 @@ public:
     void setAudioEngine(AudioEngine* engine);
     void addChannel();
     void removeChannel(int index);
+    void changeListenerCallback(juce::ChangeBroadcaster* source) override;
 
 private:
     AudioEngine* audioEngine{nullptr};

@@ -4,32 +4,35 @@ MainComponent::MainComponent()
     : audioDeviceSelector("Audio Device"),
       volumeSlider("Volume")
 {
+    // Create audio engine
     audioEngine = std::make_unique<AudioEngine>();
     
-    // Setup audio device selector with available devices
+    // Setup audio device selector
     addAndMakeVisible(audioDeviceSelector);
     audioDeviceSelector.addListener(this);
     initialiseAudioDeviceSelector();
-    // Setup audio device selector
-    audioDeviceSelector.addListener(this);
-    addAndMakeVisible(audioDeviceSelector);
 
     // Setup volume slider
     volumeSlider.setRange(0.0, 1.0);
+    volumeSlider.setValue(1.0); // Set default volume to maximum
     volumeSlider.addListener(this);
     addAndMakeVisible(volumeSlider);
 
-    // Add the level meter
+    // Setup level meter
     addAndMakeVisible(levelMeter);
 
-    // Add the mixer panel
+    // Setup mixer panel
+    mixerPanel = std::make_unique<MixerPanel>();
     addAndMakeVisible(*mixerPanel);
+    // Connect mixer panel to audio engine
+    mixerPanel->setAudioEngine(audioEngine.get());
 
     // Start timer for meter updates
     startTimer(50);
 }
 
 MainComponent::~MainComponent() {
+    stopTimer();
 }
 
 void MainComponent::prepareToPlay(int samplesPerBlockExpected, double sampleRate) {

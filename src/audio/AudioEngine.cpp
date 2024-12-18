@@ -298,16 +298,20 @@ void AudioEngine::updateRoutingOptions()
             inputNames.add("Input " + juce::String(i + 1) + ": " + 
                           device->getInputChannelNames()[i]);
         }
-        router.updateAvailableInputs(inputNames);
+        // router.updateAvailableInputs(inputNames);
 
         // Get output names from current device
         juce::StringArray outputNames;
+        auto outputChannelNames = device->getOutputChannelNames();
         for (int i = 0; i < device->getOutputChannelNames().size(); ++i)
         {
             outputNames.add("Output " + juce::String(i + 1) + ": " + 
-                          device->getOutputChannelNames()[i]);
+                          outputChannelNames[i]);
         }
+        router.updateAvailableInputs(inputNames);
         router.updateAvailableOutputs(outputNames);
+
+         sendChangeMessage();
     }
 }
 
