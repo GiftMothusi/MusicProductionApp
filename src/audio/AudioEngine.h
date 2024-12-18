@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 #include "ChannelAudioProcessor.h"
+#include "AudioRouting.h"
 
 class AudioEngine : public juce::AudioIODeviceCallback,
                     public juce::ChangeBroadcaster,
@@ -52,6 +53,7 @@ public:
     float getRightLevel() const;
 
 private:
+    AudioRouting router; 
     juce::AudioDeviceManager deviceManager;
     std::vector<std::unique_ptr<ChannelAudioProcessor>> channelProcessors;
     juce::AudioBuffer<float> mixBuffer;

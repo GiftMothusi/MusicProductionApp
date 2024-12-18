@@ -1456,4 +1456,5 @@ CMakeFiles/MusicProductionApp.dir/src/gui/MixerPanel.cpp.o: \
   /Users/mothusit/Documents/C++/MusicProductionApp/JUCE/modules/juce_audio_utils/audio_cd/juce_AudioCDReader.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/src/gui/ChannelStrip.h \
   /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/ChannelAudioProcessor.h \
-  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/AudioEngine.h
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/AudioEngine.h \
+  /Users/mothusit/Documents/C++/MusicProductionApp/src/audio/AudioRouting.h

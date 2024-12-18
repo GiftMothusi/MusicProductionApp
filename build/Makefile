@@ -583,6 +583,30 @@ src/audio/AudioEngine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/audio/AudioEngine.cpp.s
 .PHONY : src/audio/AudioEngine.cpp.s
 
+src/audio/AudioRouting.o: src/audio/AudioRouting.cpp.o
+.PHONY : src/audio/AudioRouting.o
+
+# target to build an object file
+src/audio/AudioRouting.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/audio/AudioRouting.cpp.o
+.PHONY : src/audio/AudioRouting.cpp.o
+
+src/audio/AudioRouting.i: src/audio/AudioRouting.cpp.i
+.PHONY : src/audio/AudioRouting.i
+
+# target to preprocess a source file
+src/audio/AudioRouting.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/audio/AudioRouting.cpp.i
+.PHONY : src/audio/AudioRouting.cpp.i
+
+src/audio/AudioRouting.s: src/audio/AudioRouting.cpp.s
+.PHONY : src/audio/AudioRouting.s
+
+# target to generate assembly for a file
+src/audio/AudioRouting.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MusicProductionApp.dir/build.make CMakeFiles/MusicProductionApp.dir/src/audio/AudioRouting.cpp.s
+.PHONY : src/audio/AudioRouting.cpp.s
+
 src/audio/ChannelAudioProcessor.o: src/audio/ChannelAudioProcessor.cpp.o
 .PHONY : src/audio/ChannelAudioProcessor.o
 
@@ -815,6 +839,9 @@ help:
 	@echo "... src/audio/AudioEngine.o"
 	@echo "... src/audio/AudioEngine.i"
 	@echo "... src/audio/AudioEngine.s"
+	@echo "... src/audio/AudioRouting.o"
+	@echo "... src/audio/AudioRouting.i"
+	@echo "... src/audio/AudioRouting.s"
 	@echo "... src/audio/ChannelAudioProcessor.o"
 	@echo "... src/audio/ChannelAudioProcessor.i"
 	@echo "... src/audio/ChannelAudioProcessor.s"

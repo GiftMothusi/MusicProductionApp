@@ -33,6 +33,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MusicProductionApp.dir/JUCE/modules/juce_gui_extra/juce_gui_extra.mm.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/audio/AudioEngine.cpp.o"
   "CMakeFiles/MusicProductionApp.dir/src/audio/AudioEngine.cpp.o.d"
+  "CMakeFiles/MusicProductionApp.dir/src/audio/AudioRouting.cpp.o"
+  "CMakeFiles/MusicProductionApp.dir/src/audio/AudioRouting.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/audio/ChannelAudioProcessor.cpp.o"
   "CMakeFiles/MusicProductionApp.dir/src/audio/ChannelAudioProcessor.cpp.o.d"
   "CMakeFiles/MusicProductionApp.dir/src/audio/MidiHandler.cpp.o"

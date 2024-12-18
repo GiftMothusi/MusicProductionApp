@@ -33,6 +33,7 @@ target_sources(MusicProductionApp
         src/audio/AudioEngine.cpp
         src/audio/MidiHandler.cpp
         src/audio/ChannelAudioProcessor.cpp
+        src/audio/AudioRouting.cpp
         src/gui/MainComponent.cpp
         src/gui/MixerPanel.cpp
         src/gui/SimpleLevelMeter.cpp

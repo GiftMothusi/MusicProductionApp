@@ -21,6 +21,8 @@ public:
     void comboBoxChanged(juce::ComboBox* box) override;
     void buttonClicked(juce::Button* button) override;
 
+    void updateRoutingOptions(const juce::StringArray& inputs, const juce::StringArray& outputs);
+
     // Audio parameter setters/getters
     void setInputSource(int sourceIndex);
     void setOutputDestination(int destinationIndex);

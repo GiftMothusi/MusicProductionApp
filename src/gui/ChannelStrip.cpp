@@ -80,6 +80,14 @@ void ChannelStrip::createAndSetupButtons()
     recButton.setClickingTogglesState(true);
     recButton.addListener(this);
     addAndMakeVisible(recButton);
+
+    // Setup input selector
+    inputSelector.addListener(this);
+    addAndMakeVisible(inputSelector);
+
+    // Setup output selector
+    outputSelector.addListener(this);
+    addAndMakeVisible(outputSelector);
 }
 
 void ChannelStrip::createAndSetupLabels()
@@ -169,6 +177,14 @@ void ChannelStrip::setAudioProcessor(ChannelAudioProcessor* newProcessor)
 void ChannelStrip::resized()
 {
     auto bounds = getLocalBounds().reduced(4);
+    const int comboBoxHeight = 24;
+
+
+    inputSelector.setBounds(bounds.removeFromTop(comboBoxHeight));
+    bounds.removeFromTop(4); // spacing
+    outputSelector.setBounds(bounds.removeFromTop(comboBoxHeight));
+    bounds.removeFromTop(4);
+
     const int buttonHeight = 20;
     const int knobSize = 60;
     const int labelHeight = 20;
@@ -337,6 +353,25 @@ void ChannelStrip::updateMetersFromProcessor()
         {
             // Change the meter color or add an indicator here
         }
+    }
+}
+
+
+void ChannelStrip::updateRoutingOptions(const juce::StringArray& inputs, const juce::StringArray& outputs)
+{
+    inputSelector.clear();
+    outputSelector.clear();
+    
+    inputSelector.addItem("No Input", 1);
+    for (int i = 0; i < inputs.size(); ++i)
+    {
+        inputSelector.addItem(inputs[i], i + 2);
+    }
+    
+    outputSelector.addItem("Main Output", 1);
+    for (int i = 0; i < outputs.size(); ++i)
+    {
+        outputSelector.addItem(outputs[i], i + 2);
     }
 }
 
